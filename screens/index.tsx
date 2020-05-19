@@ -1,11 +1,13 @@
 import AddRewardScreen from './AddRewardScreen';
-import StatsScreen from './StatsScreen';
+import HomeScreen from './HomeScreen';
+import LoginScreen from './LoginScreen';
 import StoreScreen from './StoreScreen';
 import TodoListScreen from './TodoListScreen';
 
 export {
     AddRewardScreen,
-    StatsScreen,
+    HomeScreen,
+    LoginScreen,
     StoreScreen,
     TodoListScreen
 }
