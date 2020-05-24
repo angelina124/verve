@@ -1,39 +1,42 @@
 import axios from 'axios';
-import { Component } from 'react';
-import { View } from 'react-native'
+import React, { Component } from 'react';
+import { View, Text } from 'react-native'
 import { routes } from '../constants/routes'
+import { Button } from 'react-native-elements';
+import { colors } from '../constants/colors';
+import types from '../constants/types'
 
-interface Props {
-  name?: string;
-}
+// temporary for testing purposes
+const userID = "5ebd43a870293ebe95f00321"
 
-interface State {
-  nameList: any
-}
+type todolist = types["todo"][] | []
+type state = { todos: todolist }
 
-class TodoList extends Component<Props, State> {
+class TodoList extends Component<{}, state>{
   constructor(props: any) {
     super(props)
 
     this.state = {
-      nameList: null
+      todos: []
     }
   }
 
   // get ten of the users todos
   componentDidMount() {
-    axios.get(routes.users.user)
+    console.log('mounted')
+    console.log(routes.users.user + userID)
+    axios.get(routes.todos + userID)
       .then((res: any) => {
-        const nameList = res.data;
-        this.setState({ nameList });
+        const todos = res.data;
+        this.setState({ todos });
       })
   }
 
   render() {
-    const { nameList } = this.state
-    console.log(nameList);
+    const { todos } = this.state
+    console.log(todos);
     return (
-      <View>Hi</View>
+      <View><Text>Hi</Text></View>
     )
   }
 }

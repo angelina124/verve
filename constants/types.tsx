@@ -13,5 +13,10 @@ export default interface types {
     destination: string;
     backgroundColor: string;
     textColor: string;
+  },
+  todo: {
+    _id: string;
+    text: string;
+    points: number
   }
 }
